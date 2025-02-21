@@ -21,14 +21,18 @@ jobs:
         uses: actions/checkout@master
       - name: tfsec
         uses: aquasecurity/tfsec-action@v1.0.0
+      
+  Slack:
+    runs-on: ubuntu-latest
+    env:
+      SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+    steps:
       - uses: act10ns/slack@v2
         with:
           status: ${{ job.status }}
           steps: ${{ toJson(steps) }}
-          webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
           channel: '#workflows'
-        if: always()   
-  
-        
+        if: always()
+      
 
   
