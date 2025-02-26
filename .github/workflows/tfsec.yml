@@ -12,24 +12,7 @@ on:
 
   
 jobs:
-  tfsec:
-    name: tfsec
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Clone repo
-        uses: actions/checkout@master
-      - name: tfsec
-        uses: aquasecurity/tfsec-action@v1.0.0
-      - name: Slack
-        uses: act10ns/slack@v2
-        with:
-          status: ${{ job.status }}
-          steps: ${{ toJson(steps) }}
-          webhook-url: ${{ secrets.SLACK_WEBHOOK_URL }}
-          channel: '#workflows'
-        if: always()
-
+  
 
 
   terraform:
