@@ -1,7 +1,6 @@
 #MAIN.TF FILE FOR CREATING EC2 USING VARIABLE:
 # Configure the AWS Provider
 provider "aws" {
-  profile = "default"
   region  = "us-west-2"
 }
 
